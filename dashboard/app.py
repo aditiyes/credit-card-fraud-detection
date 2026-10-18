@@ -2,11 +2,17 @@ from __future__ import annotations
 
 import os
 import random
+import sys
+from pathlib import Path
 
 import pandas as pd
 import plotly.express as px
 import requests
 import streamlit as st
+
+project_root = str(Path(__file__).resolve().parent.parent)
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 from src.config import normalize_service_url
 
