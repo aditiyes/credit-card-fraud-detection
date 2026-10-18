@@ -87,6 +87,7 @@ if submitted:
         response.raise_for_status()
         result = response.json()
         st.session_state["last_result"] = result
+        st.rerun()
     except requests.RequestException as error:
         st.error(f"Scoring failed: {error}")
 
