@@ -8,9 +8,9 @@ import plotly.express as px
 import requests
 import streamlit as st
 
-API_URL = os.getenv("API_URL", "http://127.0.0.1:8000").rstrip("/")
-if not API_URL.startswith(("http://", "https://")):
-    API_URL = f"https://{API_URL}"
+from src.config import normalize_service_url
+
+API_URL = normalize_service_url(os.getenv("API_URL", "http://127.0.0.1:8000"))
 REQUEST_TIMEOUT = 15
 
 st.set_page_config(page_title="Fraud Risk Monitor", page_icon="🛡️", layout="wide")
